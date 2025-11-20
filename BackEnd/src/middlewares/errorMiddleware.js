@@ -1,4 +1,4 @@
-export const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
 
   res.status(err.statusCode || 500).json({
@@ -6,3 +6,5 @@ export const errorHandler = (err, req, res, next) => {
     message: err.message || "Internal Server Error",
   });
 };
+
+module.exports = errorHandler;
