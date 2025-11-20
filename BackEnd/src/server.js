@@ -1,14 +1,16 @@
-const express = require('express');
-const app = express();
+const app=require("./app");
+const dotenv=require("dotenv");
+const connectDB=require("./config/database.js");
 
-const port = process.env.PORT || 3000;
+dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+connectDB();
+
+const PORT = process.env.PORT || 3000;
+
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 
-module.exports = app;
