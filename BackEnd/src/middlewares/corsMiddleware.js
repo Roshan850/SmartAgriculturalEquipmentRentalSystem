@@ -1,6 +1,8 @@
 const cors =require("cors");
 
-export const corsMiddleware = cors({
+const corsMiddleware = cors({
   origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
 });
+
+module.exports=corsMiddleware;
